@@ -1,27 +1,28 @@
 <?php
 
 require_once "phone.php";
+require_once "address.php";
 
 /**
 * abonent class
 */
 class Abonent
 {
-	private $surname;
-	private $name;
-	private $middleName;
+	public $surname;
+	public $name;
+	public $middleName;
+	public $phone;
+	public $address;
 
-	function __construct($surname, $name, $middleName, $phoneNumber)
+	function __construct($surname, $name, $middleName, $phoneNumber, $street, $houseNumber)
 	{
 		$this->surname=$surname;
 		$this->name=$name;
-		$this->$middleName;
-		$phone=new phone($phoneNumber); //проверить класс внутри обьекта
+		$this->middleName=$middleName;
+		$this->phone=new phone($phoneNumber); 
+		$this->address=new Address($street, $houseNumber); //проверить класс внутри обьекта
 	}
 
 }
-//тест класса 
-$aa=new phone(8563254444);
-echo $aa->getPhone();
 
 ?>

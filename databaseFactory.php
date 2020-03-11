@@ -6,7 +6,7 @@ class DatabaseFactory
 {
     private static $connection;
 
-public static function getDatabase(){
+    public static function getDatabase(){
         if(self::$connection==null){
             $host="localhaot";
             $database="phonebook";
@@ -17,6 +17,5 @@ public static function getDatabase(){
         return self::$connection;
     }
 }
-
 
 ?>

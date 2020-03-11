@@ -14,7 +14,7 @@ class Abonent
 	public $phone;
 	public $address;
 
-	function __construct($surname, $name, $middleName, $phoneNumber, $street, $houseNumber)
+	function __construct($surname, $name, $middleName, $phoneNumber=null, $street=null, $houseNumber=null)
 	{
 		$this->surname=$surname;
 		$this->name=$name;

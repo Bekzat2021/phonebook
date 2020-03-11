@@ -16,22 +16,25 @@ class Database
         $this->password=$password;
     }
 
+    public $user_id;
+
     public function __desctruct(){
         if ($this->connection != null) {
             $this->closeConnection();
         }
     }
 
+    //Создает обьект mysqli и связывает с базой данных
     public function makeConnection(){
-        //создает обьект mysqli связь с базой данных
         $this->connection=new mysqli($this->url, $this->user, $this->password, $this->database);
         if ($this->connection->connect_error) {
             echo "Fail ".$this->connection->connect_error;
         }
+        $user_id = $this->connection->insert_id;
     }
 
     public function executeQuery($query, $params=null){
-        //делает соеденение если его нет
+        //Создает соеденение если его нет
         $this->makeConnection();
 
         if ($params!=null) {
@@ -49,7 +52,8 @@ class Database
         $result=$this->connection->query($query);
         return $result;
     }
-
+    
+    //Защита от SQL иньекции очищает запрос
     public function cleanParameters($parameters){
         $result=$this->connection->real_escape_string($parameters);
         return $result;

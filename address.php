@@ -8,8 +8,12 @@ class Address
         $this->address = $address;
     }
 
-    function GetAddress(){
+    public function GetAddress(){
         return $this->$address;
+    }
+
+    public function SetAddress($address){
+        $this->address=$address;
     }
 }
 

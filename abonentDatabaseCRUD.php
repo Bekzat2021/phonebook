@@ -38,15 +38,19 @@ class abonentDatabaseCRUD
     }
 
     public static function Insert($abonent){
+        echo " // функция Insert ";
+        $temp = self::getConnection()->executeQuery("INSERT INTO abonent(surname, name, middlename) 
+                                                    VALUES('$abonent->GetSurname()', '$abonent->GetName()', 
+                                                    '$abonent->GetMiddleName()');");
+        $abonent->SetId(self::getConnection()->LastRecordId());
         self::InsertPhone($abonent);
-        return self::getConnection()->executeQuery("INSERT INTO abonent(surname, name, middlename) 
-                                                    VALUES('$abonent->surname', '$abonent->name', 
-                                                    '$abonent->middleName');");
+        return $temp;
     }
 
     public static function InsertPhone($abonent){
-        echo "asa";
-        return self::getConnection()->executeQuery("INSERT INTO phones(phone, abonent_id) VALUES(".$abonent->GetPhone().", ".self::getConnection()->LastRecordId().");");
+        echo " // функция InsertPhone ";
+        return self::getConnection()->executeQuery("INSERT INTO phones(phone, abonent_id) 
+                                                    VALUES(".$abonent->GetPhone().", ".$abonent->GetId().");");
     }
 
     public static function Delete($abonent_id){

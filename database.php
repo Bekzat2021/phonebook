@@ -8,7 +8,7 @@ class Database
     private $user;
     private $password;
     private $connection=null;
-    private $RECORD;
+    private $RECORD=null;
 
     function __construct($host, $database, $user, $password){
         $this->host=$host;
@@ -47,21 +47,25 @@ class Database
             $query=$finalQuery;
         }
 
-        $result=$this->connection->query($query);
+        $result = $this->connection->query($query);
         
-        global $RECORD = $this->connection->insert_id;
-        
+        $RECORD = $this->connection->insert_id;
+        echo " // функция executeQuery ";
+        echo $RECORD;
+
         return $result;
     }
 
     //возвращает id вставленной записи
     public function LastRecordId(){
+        echo " // функция LastRecordId ";
         echo $RECORD;
-        return $RECORD;
+        return 60;
     }
     
     //Защита от SQL иньекции очищает запрос
     public function cleanParameters($parameters){
+        echo " // cleanParameters ";
         $result=$this->connection->real_escape_string($parameters);
         return $result;
     }

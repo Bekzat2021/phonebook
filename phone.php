@@ -12,7 +12,11 @@ class Phone
 		$this->phone=$phone;
 	}
 
-	function getPhone(){
+	public function SetPhone($phone){
+		$this->$phone=$phone;
+	}
+
+	public function GetPhone(){
 		return $this->phone;
 	}
 }

@@ -8,11 +8,12 @@ require_once "address.php";
 */
 class Abonent
 {
-	public $surname;
-	public $name;
-	public $middleName;
-	public $phone;
-	public $address;
+	private $abonent_id;
+	private $surname;
+	private $name;
+	private $middleName;
+	private $phone;
+	private $address;
 
 	function __construct($surname, $name, $middleName, $phoneNumber=null, $street=null, $houseNumber=null)
 	{
@@ -21,6 +22,26 @@ class Abonent
 		$this->middleName=$middleName;
 		$this->phone=new phone($phoneNumber); 
 		$this->address=new Address($street, $houseNumber); //проверить класс внутри обьекта
+	}
+
+	public function SetId($id){
+		$abonent_id=$id;
+	}
+
+	public function GetId(){
+		return $abonent_id;
+	}
+
+	public function GetSurname(){
+		return $surname;
+	}
+
+	public function GetName(){
+		return $name;
+	}
+
+	public function GetMiddlename(){
+		return $middleName;
 	}
 
 	public function GetPhone(){

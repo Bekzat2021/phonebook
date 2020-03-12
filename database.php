@@ -8,6 +8,7 @@ class Database
     private $user;
     private $password;
     private $connection=null;
+    private $RECORD;
 
     function __construct($host, $database, $user, $password){
         $this->host=$host;
@@ -15,8 +16,6 @@ class Database
         $this->user=$user;
         $this->password=$password;
     }
-
-    public $user_id;
 
     public function __desctruct(){
         if ($this->connection != null) {
@@ -29,8 +28,7 @@ class Database
         $this->connection=new mysqli($this->url, $this->user, $this->password, $this->database);
         if ($this->connection->connect_error) {
             echo "Fail ".$this->connection->connect_error;
-        }
-        $user_id = $this->connection->insert_id;
+            }
     }
 
     public function executeQuery($query, $params=null){
@@ -50,7 +48,16 @@ class Database
         }
 
         $result=$this->connection->query($query);
+        
+        global $RECORD = $this->connection->insert_id;
+        
         return $result;
+    }
+
+    //возвращает id вставленной записи
+    public function LastRecordId(){
+        echo $RECORD;
+        return $RECORD;
     }
     
     //Защита от SQL иньекции очищает запрос

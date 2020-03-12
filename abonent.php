@@ -23,6 +23,10 @@ class Abonent
 		$this->address=new Address($street, $houseNumber); //проверить класс внутри обьекта
 	}
 
+	public function GetPhone(){
+		return $this->phone->getPhone();
+	}
+
 }
 
 ?>

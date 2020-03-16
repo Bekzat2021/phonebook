@@ -1,74 +1,40 @@
-<?php
-require_once 'abonent.php';
+<?php 
 
 class Database  
 {
     private $host;
-    private $database;
     private $user;
     private $password;
-    private $connection=null;
-    private $RECORD=null;
+    private $database;
+    private $mysqli=null;
 
-    function __construct($host, $database, $user, $password){
+    function __construct($host, $user, $password, $database){
         $this->host=$host;
-        $this->database=$database;
         $this->user=$user;
         $this->password=$password;
+        $this->database=$database;
     }
 
-    public function __desctruct(){
-        if ($this->connection != null) {
-            $this->closeConnection();
+    public function MakeConnection(){
+        $this->mysqli=new mysqli($this->host, $this->user, $this->password, $this->database);
+        if ($this->mysqli->connect_error) {
+            echo "Can't make connection to MySQL".$this->mysqli->connect_error;
         }
+        return $this->mysqli;
     }
 
-    //Создает обьект mysqli и связывает с базой данных
-    public function makeConnection(){
-        $this->connection=new mysqli($this->url, $this->user, $this->password, $this->database);
-        if ($this->connection->connect_error) {
-            echo "Fail ".$this->connection->connect_error;
-            }
-    }
-
-    public function executeQuery($query, $params=null){
-        //Создает соеденение если его нет
-        $this->makeConnection();
-
-        if ($params!=null) {
-            $queryParts=preg_split("/\?/", $query);
-            if (count($queryParts)!=count($params)+1) {
-                return false;
-            }
-            $finalQuery=$queryParts[0];
-            for ($i=0; $i < count($params); $i++) { 
-                $finalQuery=$finalQuery.$this->cleanParameters($params[$i]).$queryParts[$i+1];
-            }
-            $query=$finalQuery;
+    public function Insert($query){
+        if ($this->mysqli==null) {
+            $this->MakeConnection();    
         }
-
-        $result = $this->connection->query($query);
-        
-        $RECORD = $this->connection->insert_id;
-        echo " // функция executeQuery ";
-        echo $RECORD;
-
+        $result = $this->mysqli->query($query);
         return $result;
     }
+/*
+    public function SelectAll(){
 
-    //возвращает id вставленной записи
-    public function LastRecordId(){
-        echo " // функция LastRecordId ";
-        echo $RECORD;
-        return 60;
     }
-    
-    //Защита от SQL иньекции очищает запрос
-    public function cleanParameters($parameters){
-        echo " // cleanParameters ";
-        $result=$this->connection->real_escape_string($parameters);
-        return $result;
-    }
+    */
 }
 
 ?>

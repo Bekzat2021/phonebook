@@ -1,23 +1,22 @@
-<?php 
+<?php
 
+require_once "database.php";
 require_once "abonent.php";
-require_once "databaseFactory.php";
-require_once "abonentDatabaseCRUD.php";
 
-$abonentBob=new Abonent("Rob", "Johnson", "Jr", 77777, "12 th street", 77);
+$db=new Database('localhost', 'root', '', 'phone_book');
 
-//Работает
-abonentDatabaseCRUD::Insert($abonentBob);
+$db->MakeConnection();
 
-//Работает
-//abonentDatabaseCRUD::Delete(3);
+$QueryResult = $db->Insert('SELECT * FROM abonents WHERE abonent_id=3;');
 
-//Работает
-/*
-$arr=array();
-$arr=abonentDatabaseCRUD::GetAll();
-foreach ($arr as $key => $value) {
-    echo $value.'<br>';
-}
-*/
+$id=$QueryResult->fetch_assoc();
+
+echo $id['abonent_id'].' '.$id['name'].' '.$id['lastname'];
+
+$john=new Abonent("John", "Smith");
+
+$str=$john->save();
+echo $str;
+$db->Insert($john->save());
+
 ?>

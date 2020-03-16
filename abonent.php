@@ -33,15 +33,15 @@ class Abonent
 	}
 
 	public function GetSurname(){
-		return $surname;
+		return $this->surname;
 	}
 
 	public function GetName(){
-		return $name;
+		return $this->name;
 	}
 
 	public function GetMiddlename(){
-		return $middleName;
+		return $this->middleName;
 	}
 
 	public function GetPhone(){

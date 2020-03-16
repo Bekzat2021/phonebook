@@ -39,9 +39,10 @@ class abonentDatabaseCRUD
 
     public static function Insert($abonent){
         echo " // функция Insert ";
-        $temp = self::getConnection()->executeQuery("INSERT INTO abonent(surname, name, middlename) 
-                                                    VALUES('$abonent->GetSurname()', '$abonent->GetName()', 
-                                                    '$abonent->GetMiddleName()');");
+        $name= $abonent->GetName();
+        $surname=$abonent->GetSurname();
+        $middlename=$abonent->GetMiddlename();
+        $temp = self::getConnection()->executeQuery("INSERT INTO abonent(surname, name, middlename) VALUES('$surname', '$name', '$middlename');");
         $abonent->SetId(self::getConnection()->LastRecordId());
         self::InsertPhone($abonent);
         return $temp;

@@ -60,7 +60,7 @@ class Database
     public function LastRecordId(){
         echo " // функция LastRecordId ";
         echo $RECORD;
-        return 60;
+        return 50;
     }
     
     //Защита от SQL иньекции очищает запрос

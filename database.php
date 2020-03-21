@@ -23,18 +23,18 @@ class Database
         return $this->mysqli;
     }
 
-    public function Insert($query){
+    public function Query($query){
         if ($this->mysqli==null) {
             $this->MakeConnection();    
         }
         $result = $this->mysqli->query($query);
+        $this->GetLastInsertedID();
         return $result;
     }
-/*
-    public function SelectAll(){
 
+    public function GetLastInsertedID(){
+        return $this->mysqli->insert_id;
     }
-    */
 }
 
 ?>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>База данных абоентов</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -19,11 +20,17 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Главная <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="allAbonents.php">Показать список</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="allAbonents.php">Показать список</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="addAbonent.php">Добавить абонента</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Добавить</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="addAbonent.php">Абонента</a>
+          <a class="dropdown-item" href="#">Телефон</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Адрес</a>
+        </div>
       </li>
     </ul>
   </div>

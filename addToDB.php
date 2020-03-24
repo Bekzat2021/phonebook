@@ -2,30 +2,20 @@
 
 require_once "header.php";
 require_once "database.php";
+require_once "abonent.php";
 
 $name=$_POST['name'];
 $lastname=$_POST['lastname'];
 
-echo $name;
-echo '<br>';
-echo $lastname;
-
+$newAbonent=new Abonent($name, $lastname);
 
 $db=new Database('localhost', 'root', '', 'phone_book');
 
 $db->MakeConnection();
 
-/*  *** Simple test query for a select from abonents table */
+$db->Query($newAbonent->Save());
 
-$str="INSERT INTO abonents(name, lastname) VALUES('$name', '$lastname');";
-$db->Query($str);
-//$id=$QueryResult->fetch_assoc();
-//echo $id['abonent_id'].' '.$id['name'].' '.$id['lastname'];
-
-echo '<br>';
-echo $str;
-
-
+echo $newAbonent->Save();
 
 require_once "footer.php";
 

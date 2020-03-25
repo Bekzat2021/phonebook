@@ -28,6 +28,10 @@ class Address
 	public function GetHouse(){
 		return $this->house;
 	}
+
+	public function Save(){
+		return "INSERT INTO addresses(city, street, house, addresses_abonent_id) VALUES('$this->GetCity()', '$this->GetStreet()', '$this->GetHouse()');"
+	}
 }
 
 ?>

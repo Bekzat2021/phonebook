@@ -36,7 +36,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="addAbonent.php">Абонента</a>
           <a class="dropdown-item" href="#">Телефон</a>
-          <a class="dropdown-item" href="#">Адрес</a>
+          <a class="dropdown-item" href="addAddresses.php">Адрес</a>
         </div>
       </li>
 

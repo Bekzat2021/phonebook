@@ -3,7 +3,7 @@ require_once "header.php";
 
 echo '<p>Добавить абонента</p>';
 
-echo '<form action="addToDB.php" method="post" style="width: 300px">
+echo '<form action="addAbonentToDB.php" method="post" style="width: 300px">
   <div class="form-group">
     <label for="name">Имя абонента</label>
     <input type="text" class="form-control" id="name" name="name" placeholder="Введите имя">

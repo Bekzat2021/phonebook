@@ -32,12 +32,7 @@
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Добавить</a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="addAbonent.php">Абонента</a>
-          <a class="dropdown-item" href="#">Телефон</a>
-          <a class="dropdown-item" href="addAddresses.php">Адрес</a>
-        </div>
+        <a class="nav-link " href="addAbonent.php" role="button" aria-haspopup="true" aria-expanded="false">Добавить нового абонента</a>
       </li>
 
     </ul>

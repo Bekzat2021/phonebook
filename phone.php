@@ -5,21 +5,24 @@
 */
 class Phone
 {
-	private $abonentID;
 	private $phone;
 
-	function __construct($abonentID, $phone)
+	function __construct($phone)
 	{
-		$this->abonentID=$abonentID;
 		$this->phone=$phone;
 	}
 
 	public function ShowPhoneInfo(){
-		echo "ID: ".$this->abonentID." phone: ".$this->phone.'<br>';
+		echo "Phone: ".$this->phone.'<br>';
 	}
 
 	public function GetNum(){
 		return $this->phone;
+	}
+
+	public function Save($abonentID){
+		$number=$this->GetNum();
+		return "INSERT INTO phone(phone_number, phone_abonent_id) VALUES('$number', '$abonentID');";
 	}
 }
 

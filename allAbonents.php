@@ -10,7 +10,10 @@ $db->MakeConnection();
 
 /*  *** Simple test query for a select from abonents table*/
 
-$QueryResult = $db->Query('SELECT abonents.abonent_id, abonents.name, abonents.lastname, phone.phone_number, addresses.city, addresses.street, addresses.house FROM ((abonents INNER JOIN phone ON abonents.abonent_id=phone.phone_abonent_id) INNER JOIN addresses ON abonents.abonent_id=addresses.addresses_abonent_id);');
+$QueryResult = $db->Query('SELECT abonents.abonent_id, abonents.name, abonents.lastname, phone.phone_number, 
+							addresses.city, addresses.street, addresses.house FROM ((abonents INNER JOIN phone 
+							ON abonents.abonent_id=phone.phone_abonent_id) INNER JOIN addresses 
+							ON abonents.abonent_id=addresses.addresses_abonent_id);');
 
 echo '<table class="table table-striped">
 		<thead>
@@ -34,5 +37,3 @@ echo '</tbody>
 	</table>';
 
 require_once "footer.php";
-
-?>

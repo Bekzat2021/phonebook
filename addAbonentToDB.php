@@ -4,6 +4,7 @@ require_once "header.php";
 require_once "database.php";
 require_once "abonent.php";
 require_once "address.php";
+require_once "phone.php";
 
 $name=$_POST['name'];
 $lastname=$_POST['lastname'];
@@ -26,11 +27,18 @@ $newAddress=new Address($city, $street, $house);
 
 //$newAddress->Save($db->GetLastInsertedID());
 
-$db->Query($newAddress->Save($db->GetLastInsertedID()));
+$LastAbonentID=$db->GetLastInsertedID();
+$db->Query($newAddress->Save($LastAbonentID));
+
+$newPhone=new Phone($phone_number);
+
+$db->Query($newPhone->Save($LastAbonentID));
 
 echo $newAbonent->Save();
 echo '<br>';
-echo $newAddress->Save($db->GetLastInsertedID());
+echo $newAddress->Save($LastAbonentID);
+echo '<br>';
+echo $newPhone->Save($LastAbonentID);
 
 require_once "footer.php";
 

@@ -16,6 +16,10 @@ class Abonent
         $this->lastname = $lastname;
     }
 
+    public function SetName($name){
+        $this->name=$name;
+    }
+
     public function GetName(){
         return $this->name;
     }
@@ -44,16 +48,9 @@ class Abonent
         return $this->phone->GetNum();
     }
 
-    public function AddOnlyNumber(){
-        $num=$this->phone->GetNum();
-        return "INSERT INTO phone(phone_number, phone_abonent_id) VALUES('$num', '$this->id')";
-    }
-
-    public function AddOnlyAddress(){
-        $city=$this->address->GetCity();
-        $street=$this->address->GetStreet();
-        $house=$this->address->GetHouse();
-        return "INSERT INTO addresses(city, street, house, addresses_abonent_id) VALUES('$city', '$street', '$house', '$this->id')";
+    public function TakeFromBase($id){
+        $this->id=$id;
+        return "SELECT * FROM abonents WHERE abonent_id = '$this->id';";
     }
 
     public function Save(){

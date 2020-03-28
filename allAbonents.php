@@ -2,8 +2,6 @@
 require_once "header.php";
 require_once "database.php";
 
-echo '<p>Все абоненты</p>';
-
 $db=new Database('localhost', 'root', '', 'phone_book');
 
 $db->MakeConnection();
@@ -24,13 +22,17 @@ echo '<table class="table table-striped">
       		<th scope="col">Телефон</th>
       		<th scope="col">Город</th>
       		<th scope="col">Улица</th>
-      		<th scope="col">Номер дома</th>
+			  <th scope="col">Номер дома</th>
+			  <th scope="col">Редактирование</th>
     	  </tr>
   		</thead>
   		<tbody>
   ';
 foreach ($QueryResult as $value) {
-	echo '<tr><th scope="row">'.$value['abonent_id'].'</th><td>'.$value['name'].'</td><td>'.$value['lastname'].'</td><td>'.$value['phone_number'].'</td><td>'.$value['city'].'</td><td>'.$value['street'].'</td><td>'.$value['house'].'</td>';
+	echo '<tr><th scope="row">'.$value['abonent_id'].'</th><td>'.$value['name'].'</td><td>'.$value['lastname'].'</td>
+	<td>'.$value['phone_number'].'</td>
+	<td>'.$value['city'].'</td><td>'.$value['street'].'</td><td>'.$value['house'].'</td>
+	<td><a href="edit.php?id='.$value['abonent_id'].'">Редактировать</a></td>';
 }
 
 echo '</tbody>

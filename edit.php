@@ -1,5 +1,11 @@
-<?php
+<?php   
+
 require_once "header.php";
+require_once "abonent.php";
+
+$val=$_GET['id'];
+
+$newAbonent=new Abonent();
 
 echo '<form action="addAbonentToDB.php" method="post" style="width: 300px">
   <div class="form-group">

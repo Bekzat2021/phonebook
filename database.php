@@ -32,8 +32,23 @@ class Database
         return $result;
     }
 
+<<<<<<< HEAD
     public function GetLastInsertedID(){
         return $this->mysqli->insert_id;
+=======
+    //возвращает id вставленной записи
+    public function LastRecordId(){
+        echo " // функция LastRecordId ";
+        echo $RECORD;
+        return 50;
+    }
+    
+    //Защита от SQL иньекции очищает запрос
+    public function cleanParameters($parameters){
+        echo " // cleanParameters ";
+        $result=$this->connection->real_escape_string($parameters);
+        return $result;
+>>>>>>> 6cc57ba51c9611cb34a32db0a63c15e92aff5f65
     }
 }
 

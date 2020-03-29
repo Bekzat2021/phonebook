@@ -5,20 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>База данных абоентов</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-<<<<<<< HEAD
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
-=======
->>>>>>> 6cc57ba51c9611cb34a32db0a63c15e92aff5f65
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-<<<<<<< HEAD
   <a class="navbar-brand" href="index.php">Справочник</a>
-=======
-  <a class="navbar-brand" href="#">Справочник</a>
->>>>>>> 6cc57ba51c9611cb34a32db0a63c15e92aff5f65
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,7 +19,6 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-<<<<<<< HEAD
         <a class="nav-link" href="index.php">Главная <span class="sr-only">(current)</span></a>
       </li>
 
@@ -41,17 +33,3 @@
     </ul>
   </div>
 </nav>
-=======
-        <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="list.php">Показать список</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Добавить</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-    
->>>>>>> 6cc57ba51c9611cb34a32db0a63c15e92aff5f65

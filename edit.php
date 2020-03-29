@@ -2,15 +2,27 @@
 
 require_once "header.php";
 require_once "abonent.php";
+require_once "database.php";
 
-$val=$_GET['id'];
+$id=$_GET['id'];
 
 $newAbonent=new Abonent();
+
+$db=new Database('localhost', 'root', '', 'phone_book');
+
+$db->MakeConnection();
+
+$abonentData = mysqli_fetch_assoc($db->Query($newAbonent->TakeFromBase($id)));
+
+
+$newAbonent->SetName($abonentData['name']);
+$newAbonent->SetLastName($abonentData['lastname']);
+
 
 echo '<form action="addAbonentToDB.php" method="post" style="width: 300px">
   <div class="form-group">
     <label for="name">Имя абонента</label>
-    <input type="text" class="form-control" name="name" placeholder="Введите имя">
+    <input type="text" class="form-control" name="name" placeholder="'.$newAbonent->GetName().'">
     <label for="lastname">Фамилия абонента</label>
     <input type="text" class="form-control" name="lastname" placeholder="Введите фамилию">
     <hr>

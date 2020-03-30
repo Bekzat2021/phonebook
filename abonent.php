@@ -57,6 +57,14 @@ class Abonent
         return "SELECT * FROM abonents WHERE abonent_id = '$this->id';";
     }
 
+    public function TakeAddress($id1){
+        return "SELECT * FROM addresses WHERE addresses_abonent_id = '$id1';";
+    }
+
+    public function TakePhone($id2){
+        return "SELECT * FROM phone WHERE phone_abonent_id = '$id2';";
+    }
+
     public function Save(){
         return "INSERT INTO abonents(name, lastname) VALUES('$this->name', '$this->lastname')";
     }

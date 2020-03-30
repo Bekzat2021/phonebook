@@ -4,7 +4,7 @@ require_once "database.php";
 
 require_once "header.php";
 
-echo '<div class="jumbotron">
+echo '<div class="jumbotron" style="background-image: url(\'images/web-3120321_1280.jpg\'); background-size: cover;">
         <div class="container">
           <h1 class="display-4">Справочник</h1>
           <p>Телефонный справочник предостовляет возможность находить и просматриваить информацию об абонентах а также добавлять, редактировать и удалять записи.</p>

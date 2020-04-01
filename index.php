@@ -4,11 +4,11 @@ require_once "database.php";
 
 require_once "header.php";
 
-echo '<div class="jumbotron" style="background-image: url(\'images/web-3120321_1280.jpg\'); background-size: cover;">
+echo '<div class="jumbotron">
         <div class="container">
           <h1 class="display-4">Справочник</h1>
           <p>Телефонный справочник предостовляет возможность находить и просматриваить информацию об абонентах а также добавлять, редактировать и удалять записи.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Добавить абонента &raquo;</a></p>
+          <p><a class="btn btn-primary btn-lg" href="addAbonent.php" role="button">Добавить абонента &raquo;</a></p>
         </div>
       </div>';
 
@@ -16,19 +16,19 @@ echo '<div class="container">
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          <h2>Абоненты</h2>
+          <p>Информация об абонентах идентификаторы, имена и фамилии. </p>
+          <p><a class="btn btn-secondary" href="allAbonents.php" role="button">Показать &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          <h2>Адреса</h2>
+           <p>Сведения об названии городов, улиц и номера домов. </p>
+           <p><a class="btn btn-secondary" href="allAbonents.php" role="button">Показать &raquo;</a></p>
          </div>
          <div class="col-md-4">
-           <h2>Heading</h2>
-           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-           <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+           <h2>Телефоны</h2>
+           <p>Идентификаторы вместе с телефонными номерами.</p>
+           <p><a class="btn btn-secondary" href="allAbonents.php" role="button">Показать &raquo;</a></p>
          </div>
        </div>';   
 

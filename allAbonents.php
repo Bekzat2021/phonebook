@@ -13,10 +13,11 @@ $QueryResult = $db->Query('SELECT abonents.abonent_id, abonents.name, abonents.l
 							ON abonents.abonent_id=phone.phone_abonent_id) INNER JOIN addresses 
 							ON abonents.abonent_id=addresses.addresses_abonent_id);');
 
-echo '<table class="table table-striped">
+echo '<div class="container" style="margin-top: 20px;">
+		<table class="table table-striped">
 		<thead>
   		  <tr>
-		    <th scope="col">#id</th>
+		    <th scope="col">ID</th>
       		<th scope="col">Имя</th>
       		<th scope="col">Фамилия</th>
       		<th scope="col">Телефон</th>
@@ -27,7 +28,7 @@ echo '<table class="table table-striped">
     	  </tr>
   		</thead>
   		<tbody>
-  ';
+  </div>';
 foreach ($QueryResult as $value) {
 	echo '<tr><th scope="row">'.$value['abonent_id'].'</th><td>'.$value['name'].'</td><td>'.$value['lastname'].'</td>
 	<td>'.$value['phone_number'].'</td>

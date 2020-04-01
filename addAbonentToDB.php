@@ -6,16 +6,52 @@ require_once "abonent.php";
 require_once "address.php";
 require_once "phone.php";
 
-$name=$_POST['name'];
-$lastname=$_POST['lastname'];
+$emptyStrings = null;
 
-$city=$_POST['city'];
-$street=$_POST['street'];
-$house=$_POST['house'];
+if (empty($_POST['name'])) {
+    $emptyStrings .= " имя ";
+}else{
+    $name=$_POST['name'];
+}
 
-$phone_number=$_POST['phone_number'];
+if (empty($_POST['lastname'])) {
+    $emptyStrings .= " фамилия ";
+}else{
+    $lastname=$_POST['lastname'];
+}
 
-$newAbonent=new Abonent($name, $lastname);
+if (empty($_POST['city'])) {
+    $emptyStrings .= " город ";
+}else{
+    $city=$_POST['city'];
+}
+
+if (empty($_POST['street'])) {
+    $emptyStrings .= " улица ";
+}else{
+    $street=$_POST['street'];
+}
+
+if (empty($_POST['house'])) {
+    $emptyStrings .= " улица ";
+}else{
+    $house=$_POST['house'];
+}
+
+if (empty($_POST['phone_number'])) {
+    $emptyStrings .= " номер ";
+}else{
+    $phone_number=$_POST['phone_number'];
+}
+
+if ($emptyStrings != null) {
+    try {
+        throw new Exception('Поля '.$emptyStrings.' не могут быть пустыми!');
+    } catch (Exception $th) {
+        echo $th->getMessage();
+    }
+}else{
+    $newAbonent=new Abonent($name, $lastname);
 
 $db=new Database('localhost', 'root', '', 'phone_book');
 
@@ -39,6 +75,9 @@ echo '<br>';
 echo $newAddress->Save($LastAbonentID);
 echo '<br>';
 echo $newPhone->Save($LastAbonentID);
+}
+
+
 
 require_once "footer.php";
 

@@ -8,6 +8,8 @@ require_once "phone.php";
 
 $emptyStrings = null;
 
+echo '<div class="row"><div class="col"></div><div class="col">';
+
 if (empty($_POST['name'])) {
     $emptyStrings .= " имя ";
 }else{
@@ -46,7 +48,7 @@ if (empty($_POST['phone_number'])) {
 
 if ($emptyStrings != null) {
     try {
-        throw new Exception('Поля '.$emptyStrings.' не могут быть пустыми!');
+        throw new Exception('<h2>Поля '.$emptyStrings.' не могут быть пустыми!</h2>');
     } catch (Exception $th) {
         echo $th->getMessage();
     }
@@ -77,7 +79,7 @@ echo '<br>';
 echo $newPhone->Save($LastAbonentID);
 }
 
-
+echo '</div><div class="col"></div></div>';
 
 require_once "footer.php";
 

@@ -68,15 +68,15 @@ $newAddress=new Address($city, $street, $house);
 $LastAbonentID=$db->GetLastInsertedID();
 $db->Query($newAddress->Save($LastAbonentID));
 
-$newPhone=new Phone($phone_number);
+$newPhone=new Phone($phone_number, $LastAbonentID);
 
-$db->Query($newPhone->Save($LastAbonentID));
+$newPhone->Create();
 
 echo $newAbonent->Save();
 echo '<br>';
 echo $newAddress->Save($LastAbonentID);
 echo '<br>';
-echo $newPhone->Save($LastAbonentID);
+echo $newPhone->GetNum();
 }
 
 echo '</div><div class="col"></div></div>';

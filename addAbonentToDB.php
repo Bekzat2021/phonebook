@@ -1,10 +1,7 @@
 <?php
 
 require_once "header.php";
-require_once "database.php";
 require_once "abonent.php";
-require_once "address.php";
-require_once "phone.php";
 
 $emptyStrings = null;
 
@@ -53,30 +50,8 @@ if ($emptyStrings != null) {
         echo $th->getMessage();
     }
 }else{
-    $newAbonent=new Abonent($name, $lastname);
-
-$db=new Database('localhost', 'root', '', 'phone_book');
-
-$db->MakeConnection();
-
-$db->Query($newAbonent->Save());
-
-$newAddress=new Address($city, $street, $house);
-
-//$newAddress->Save($db->GetLastInsertedID());
-
-$LastAbonentID=$db->GetLastInsertedID();
-$db->Query($newAddress->Save($LastAbonentID));
-
-$newPhone=new Phone($phone_number, $LastAbonentID);
-
-$newPhone->Create();
-
-echo $newAbonent->Save();
-echo '<br>';
-echo $newAddress->Save($LastAbonentID);
-echo '<br>';
-echo $newPhone->GetNum();
+    $newAbonent=new Abonent($name, $lastname, $phone_number, $city, $street, $house);
+    $newAbonent->Create();
 }
 
 echo '</div><div class="col"></div></div>';

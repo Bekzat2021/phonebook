@@ -24,28 +24,32 @@ class Phone extends Entity
 		return $db;
 	}
 
-	public function Create(){
-		$number=$this->GetNum();
+	public function Create()
+	{
 		$DB=Phone::MakeConnectionToDB();
-		$DB->Query("INSERT INTO phone(phone_number, phone_abonent_id) VALUES('$number', '$this->abonentID');");		
+		$DB->Query("INSERT INTO phone(phone_number, phone_abonent_id) VALUES('$this->phone', '$this->abonentID');");		
 	}
 
 	public function Read()
 	{
-		# code...
+		$DB=Phone::MakeConnectionToDB();
+		$DB->Query("SELECT phone.phone_number FROM phone WHERE '$this->abonentID' = phone.phone_abonent_id;");
 	}
 
 	public function Update()
 	{
-		# code...
+		$DB=Phone::MakeConnectionToDB();
+		$DB->Query("UPDATE phone SET phone.phone_number = '$this->phone' WHERE '$this->abonentID' = phone.phone_abonent_id;");
 	}
 
 	public function Delete()
 	{
-		# code...
+		$DB=Phone::MakeConnectionToDB();
+		$DB->Query("DELETE FROM phone WHERE '$this->abonentID' = phone.phone_abonent_id;");
 	}
 	
-	public function GetNum(){
+	public function GetNum()
+	{
 		return $this->phone;
 	}
 }

@@ -30,6 +30,10 @@
         <a class="nav-link" href="addAbonent.php">Добавить абонента</a>
       </li>
 
+      <li class="nav-item ">
+        <a class="nav-link" href="test.php">Войти</a>
+      </li>
+
     </ul>
   </div>
 </nav>

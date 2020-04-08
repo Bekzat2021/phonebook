@@ -26,10 +26,17 @@
         <a class="nav-link" href="allAbonents.php">Список абонентов</a>
       </li>
 
-      <li class="nav-item ">
-        <a class="nav-link" href="addAbonent.php">Добавить абонента</a>
-      </li>
+      <?php
+      session_start();
 
+      if (empty($_SESSION['login']) || empty($_SESSION['user_id'])) {
+        
+      }else{
+      echo '<li class="nav-item ">
+        <a class="nav-link" href="addAbonent.php">Добавить абонента</a>
+        </li>';
+      }
+      ?>
       <li class="nav-item ">
         <a class="nav-link" href="test.php">Войти</a>
       </li>

@@ -1,7 +1,7 @@
 <?php
 
 require_once "header.php";
-session_start();
+//session_start();
 echo '<div class="row"><div class="col"></div><div class="col">';
 echo '<form action="testreg.php" method="POST">
 <p></p>
@@ -16,7 +16,7 @@ echo '<form action="testreg.php" method="POST">
 </form>';
 
 echo "<p>Если у вас нет аккаунта вы можете зарегистривоться </p>";
-echo '<a href="registration.php">Зарегистрироваться </a>';
+echo '<a href="registration.php">Зарегистрироваться</a>';
 
 if(empty($_SESSION['login']) || empty($_SESSION['user_id'])){
     echo '<p>Вы не авторизованы</p>';

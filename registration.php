@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация</title>
-</head>
-<body>
-
 <?php require_once "header.php";
+
 echo '<div class="row"><div class="col"></div><div class="col">'; ?>
 <p></p>
     <form action="save_user.php" method="POST">
